@@ -1,6 +1,67 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft Skin Stealer - MineToolsX</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/skin.css"></head><body>
-<header class="site-header"><div class="pixel-layer"></div><a class="brand-wrap skin-brand" href="/"><div class="brand-top">MINECRAFT</div><div class="brand-bottom"><span>TO</span><span class="gear">⚙</span><span>LS</span><b>X</b></div></a></header>
-<div class="page-shell skin-shell"><aside class="sidebar"><div class="side-title">COMMUNITY CONTENT</div><nav><a class="active" href="/skin.html">Skin stealer</a><a href="/">Crafting</a><a href="/">Custom crafting</a><a href="/">Flat world</a><a href="/">Enchant calculator</a><a href="/">Armor color</a><a href="/">Firework crafting</a><a href="/">Banners crafting</a><a href="/">Banners gallery</a><a href="/">Shield crafting</a><a href="/">Shield gallery</a><a href="/">Custom world</a><a href="/">Mobs Generator</a><a href="/">Loot tables</a><a href="/">Custom potions</a><a href="/">Beacon color</a><a href="/">Coordinate Calculator</a><a href="/">Target Selector</a><a href="/">Text generators</a><a href="/">Color codes</a><a href="/">JSON Text Component</a><a href="/">Title generator</a><a href="/">Sign generator</a><a href="/">Book editor</a><a href="/">/tellraw editor</a><a href="/">Custom server MOTD</a></nav></aside>
-<main class="skin-main"><h1>Minecraft skin stealer</h1><h2>Steal/grab every Minecraft skin with our tool</h2><section class="skin-tool"><label for="username">Minecraft Name:</label><input id="username" value="Notch" maxlength="16" autocomplete="off"><button id="grab">GRAB THE SKIN</button><div id="status">Loading 3D viewer…</div><div id="viewer"></div><p class="hint">Drag to rotate • Scroll to zoom</p><a id="download" class="green-btn" href="#" download="minecraft-skin.png">DOWNLOAD THIS SKIN</a></section></main></div>
-<footer><div>© MineToolsX — Minecraft tools for the community.</div><div class="legal">MineToolsX is not affiliated with Mojang or Microsoft.</div></footer>
-<script src="https://unpkg.com/skinview3d@3.4.1/bundles/skinview3d.bundle.js"></script><script src="/skin.js"></script></body></html>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minecraft Skin Stealer & 3D Skin Viewer | MineToolsX</title>
+<meta name="description" content="Grab any Minecraft Java skin by username, preview it in 3D, view front/back renders, see UUID and download the skin PNG.">
+<link rel="canonical" href="https://minetools.io/skin.html">
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/skin.css">
+</head><body>
+<header class="site-header"><div class="pixel-bg"></div><button class="menu-btn" id="menuBtn" aria-label="Open tools menu">☰</button><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header>
+<div class="tool-layout">
+<aside class="sidebar" id="sidebar"><div class="side-title">COMMUNITY CONTENT</div><nav id="toolNav"></nav></aside>
+<main class="skin-main">
+<nav class="breadcrumbs"><a href="/">Home</a><span>›</span><span>Tools</span><span>›</span><b>Skin Stealer</b></nav>
+<h1>Minecraft Skin Stealer</h1><h2>Grab a Minecraft Java skin by username and preview it in 3D.</h2>
+<section class="skin-search">
+<label for="username">Minecraft Username</label>
+<div class="search-line"><input id="username" value="Notch" maxlength="16" autocomplete="off" spellcheck="false"><button id="grab" class="green-btn">GRAB THE SKIN</button></div>
+<div id="status" class="status">Ready.</div>
+</section>
+
+<section class="skin-workspace">
+<div class="viewer-panel">
+<div class="panel-title"><b>3D Preview</b><span>Drag to rotate · Scroll to zoom</span></div>
+<div id="viewer"><div class="viewer-loading">Loading 3D viewer…</div></div>
+<div class="viewer-controls">
+<button id="autoRotate" class="control-btn active">⟳ Auto rotate</button>
+<button id="walkToggle" class="control-btn active">🚶 Walk</button>
+<button id="resetView" class="control-btn">⌂ Reset view</button>
+</div>
+<div class="cape-row">
+<label><input id="showCape" type="checkbox"> Show cape</label>
+<label><input id="showElytra" type="checkbox"> Show elytra</label>
+<span id="capeStatus">Cape availability will appear here.</span>
+</div>
+</div>
+
+<aside class="profile-card">
+<h3>Player Profile</h3>
+<div class="avatar-wrap"><img id="avatar" alt="Minecraft player head"></div>
+<dl><div><dt>Username</dt><dd id="profileName">—</dd></div><div><dt>UUID</dt><dd id="profileUuid">—</dd></div><div><dt>Model</dt><dd id="profileModel">—</dd></div><div><dt>Cape</dt><dd id="profileCape">—</dd></div></dl>
+<button id="copyUuid" class="secondary-btn">COPY UUID</button>
+</aside>
+</section>
+
+<section class="render-section">
+<h3>Skin Renders</h3>
+<div class="render-grid">
+<div class="render-card"><b>Front</b><img id="frontRender" alt="Front Minecraft skin render"></div>
+<div class="render-card"><b>Back</b><img id="backRender" alt="Back Minecraft skin render"></div>
+<div class="render-card"><b>Head</b><img id="headRender" alt="Minecraft head render"></div>
+</div>
+</section>
+
+<section class="skin-actions">
+<a id="download" class="green-btn wide" href="#" download="minecraft-skin.png">DOWNLOAD THIS SKIN</a>
+<a id="downloadHead" class="secondary-btn wide" href="#" download="minecraft-head.png">DOWNLOAD HEAD</a>
+<a id="useSkin" class="green-btn wide" href="https://www.minecraft.net/msaprofile/mygames/editskin" target="_blank" rel="noopener">USE THIS SKIN ON MINECRAFT.NET</a>
+</section>
+
+<section class="tool-guide">
+<h2>How to use the Minecraft Skin Stealer</h2>
+<ol><li>Enter a valid Minecraft Java username.</li><li>Click <b>Grab the Skin</b>.</li><li>Rotate the 3D model, inspect the front/back renders, or copy the UUID.</li><li>Download the original PNG skin and upload it to your Minecraft profile if you want to use it.</li></ol>
+<p>MineToolsX only looks up public Minecraft profile/texture data. It never asks for your Minecraft password.</p>
+</section>
+</main></div>
+<footer><div><b>MineToolsX</b> — Free Minecraft tools for the community.</div><div><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/contact.html">Contact</a></div><small>Not affiliated with Mojang Studios or Microsoft.</small></footer>
+<script src="https://unpkg.com/skinview3d@3.4.1/bundles/skinview3d.bundle.js"></script><script src="/tools.js"></script><script src="/skin.js"></script>
+</body></html>
