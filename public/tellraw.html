@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft Tellraw Generator - MineToolsX</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/tools.css"></head><body><header class="site-header"><div class="pixel-bg"></div><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header><div class="tool-layout">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft Tellraw Generator & JSON Editor | MineToolsX</title><meta name="description" content="Generate Minecraft /tellraw commands with text color, bold, italic and underline formatting."><link rel="canonical" href="https://minetools.io/tellraw.html"><meta property="og:type" content="website"><meta property="og:title" content="Minecraft Tellraw Generator & JSON Editor | MineToolsX"><meta property="og:description" content="Generate Minecraft /tellraw commands with text color, bold, italic and underline formatting."><meta property="og:url" content="https://minetools.io/tellraw.html"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/tools.css"></head><body><header class="site-header"><div class="pixel-bg"></div><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header><div class="tool-layout">
 <aside class="sidebar">
 <div class="side-title">COMMUNITY CONTENT</div>
 <nav>
@@ -28,13 +28,13 @@
 <a href="/tellraw.html">⌨ /Tellraw Editor</a>
 <a href="/motd.html">💬 Custom Server MOTD</a>
 </nav></aside>
-<main class="tool-main"><h1>/tellraw editor</h1><h2>Tool for /tellraw command</h2>
+<main class="tool-main"><h1>Minecraft Tellraw Generator</h1><h2>Create formatted /tellraw commands for Minecraft Java Edition.</h2>
 <section class="panel"><div class="form-grid">
 <div class="field full"><label>Text</label><textarea id="msg">Welcome to MineToolsX</textarea></div>
 <div class="field"><label>Selector</label><input id="twho" value="@a"></div>
 <div class="field"><label>Color</label><select id="tcolor"><option>white</option><option>green</option><option>gold</option><option>red</option><option>aqua</option><option>yellow</option></select></div></div>
 <div class="checkline"><input id="bold" type="checkbox"><label>Bold</label><input id="italic" type="checkbox"><label>Italic</label><input id="under" type="checkbox"><label>Underlined</label></div>
-<h3 style="margin-top:22px">/tellraw command for Minecraft Java Edition</h3><div id="trout" class="output"></div><div class="actions"><button class="btn" onclick="navigator.clipboard.writeText(trout.textContent)">COPY</button></div></section></main>
+<h3 style="margin-top:22px">/tellraw command for Minecraft Java Edition</h3><div id="trout" class="output"></div><div class="actions"><button class="btn" onclick="navigator.clipboard.writeText(trout.textContent)">COPY</button></div></section><section class="panel seo-guide"><h3>How to use this tool</h3><p>Generate Minecraft /tellraw commands with text color, bold, italic and underline formatting.</p><p>Change the options above and the output updates instantly. Review the generated result for the Minecraft version you play, then copy it into your command, datapack or world setup.</p></section></main>
 <script>
 function tr(){let o={text:msg.value,color:tcolor.value};if(bold.checked)o.bold=true;if(italic.checked)o.italic=true;if(under.checked)o.underlined=true;trout.textContent='/tellraw '+(twho.value||'@a')+' '+JSON.stringify(o)}
 document.querySelectorAll('.panel input,.panel textarea,.panel select').forEach(x=>x.addEventListener('input',tr));tr();
