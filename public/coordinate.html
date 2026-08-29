@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft Coordinate Calculator - MineToolsX</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/tools.css"></head><body><header class="site-header"><div class="pixel-bg"></div><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header><div class="tool-layout">
+<aside class="sidebar">
+<div class="side-title">COMMUNITY CONTENT</div>
+<nav>
+<a href="/skin.html">🧑 Skin Stealer</a>
+<a href="/">🧱 Crafting</a>
+<a href="/">↳ Custom Crafting</a>
+<a href="/">🌱 Flat World</a>
+<a href="/">📖 Enchant Calculator</a>
+<a href="/">🛡 Armor Color</a>
+<a href="/">🎆 Firework Crafting</a>
+<a href="/">🚩 Banners Crafting</a>
+<a href="/">🏳 Banners Gallery</a>
+<a href="/">🛡 Shield Crafting</a>
+<a href="/">🪨 Custom World</a>
+<a href="/">🐷 Mobs Generator</a>
+<a href="/">📦 Loot Tables</a>
+<a href="/">🧪 Custom Potions</a>
+<a href="/">💡 Beacon Color</a>
+<a href="/coordinate.html">🗺 Coordinate Calculator</a>
+<a href="/selector.html">🎯 Target Selector</a>
+<a href="/">📕 Text Generators</a>
+<a href="/color-codes.html">🟢 Color Codes</a>
+<a href="/">{} JSON Text Component</a>
+<a href="/title.html">▤ Title Generator</a>
+<a href="/">🪧 Sign Generator</a>
+<a href="/">📚 Book Editor</a>
+<a href="/tellraw.html">⌨ /Tellraw Editor</a>
+<a href="/motd.html">💬 Custom Server MOTD</a>
+</nav></aside>
+<main class="tool-main"><h1>Minecraft coordinate calculator</h1><h2>Coordinate calculator for Minecraft</h2>
+<section class="panel"><h3>Block Information</h3><div class="form-grid three">
+<div class="field"><label>X</label><input id="bx" type="number" value="0"></div>
+<div class="field"><label>Y</label><input id="by" type="number" value="64"></div>
+<div class="field"><label>Z</label><input id="bz" type="number" value="0"></div></div></section>
+<section class="panel"><h3>Chunk Section Informations</h3><div class="form-grid three">
+<div class="field"><label>Chunk X</label><input id="cx" readonly></div>
+<div class="field"><label>Section Y</label><input id="cy" readonly></div>
+<div class="field"><label>Chunk Z</label><input id="cz" readonly></div></div>
+<p id="chunkInfo" class="mini"></p></section>
+<section class="panel"><h3>Region Informations</h3><div class="form-grid">
+<div class="field"><label>Region X</label><input id="rx" readonly></div>
+<div class="field"><label>Region Z</label><input id="rz" readonly></div>
+<div class="field full"><label>Region file</label><input id="rfile" readonly></div></div>
+<p id="regionInfo" class="mini"></p></section></main>
+<script>
+function fdiv(a,b){return Math.floor(a/b)}
+function calc(){const x=+bx.value||0,y=+by.value||0,z=+bz.value||0;const cX=fdiv(x,16),cY=fdiv(y,16),cZ=fdiv(z,16);cx.value=cX;cy.value=cY;cz.value=cZ;chunkInfo.textContent='This chunk section contains blocks '+(cX*16)+','+(cY*16)+','+(cZ*16)+' to '+(cX*16+15)+','+(cY*16+15)+','+(cZ*16+15);const rX=fdiv(cX,32),rZ=fdiv(cZ,32);rx.value=rX;rz.value=rZ;rfile.value='r.'+rX+'.'+rZ+'.mca';regionInfo.textContent='This region contains chunks '+(rX*32)+','+(rZ*32)+' to '+(rX*32+31)+','+(rZ*32+31)+' and blocks '+(rX*512)+','+(rZ*512)+' to '+(rX*512+511)+','+(rZ*512+511)}
+[bx,by,bz].forEach(i=>i.addEventListener('input',calc));calc();
+</script></div><footer>© MineToolsX — Not affiliated with Mojang or Microsoft.</footer><script src="/tools.js"></script></body></html>
