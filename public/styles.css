@@ -83,3 +83,81 @@
   .tool-layout>.sidebar.open{left:0!important}
   .menu-btn{display:block!important}
 }
+
+/* FINAL TOOL LAYOUT OVERRIDE — keep desktop/tablet two-column down to 560 CSS px */
+@media(min-width:561px){
+  body .tool-layout{
+    display:grid!important;
+    grid-template-columns:220px minmax(0,1fr)!important;
+    gap:22px!important;
+    width:min(1180px,calc(100% - 24px))!important;
+    max-width:none!important;
+    margin:20px auto!important;
+    align-items:start!important;
+  }
+  body .tool-layout > .sidebar{
+    display:block!important;
+    position:sticky!important;
+    top:10px!important;
+    left:auto!important;
+    right:auto!important;
+    width:220px!important;
+    max-width:220px!important;
+    min-width:220px!important;
+    height:auto!important;
+    max-height:calc(100vh - 20px)!important;
+    overflow:auto!important;
+    margin:0!important;
+    transform:none!important;
+    box-shadow:none!important;
+  }
+  body .tool-layout > .skin-main,
+  body .tool-layout > .tool-main{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+  }
+  body .menu-btn{display:none!important}
+}
+@media(max-width:560px){
+  body .tool-layout{
+    display:block!important;
+    width:calc(100% - 16px)!important;
+    margin:12px auto!important;
+  }
+  body .tool-layout > .sidebar{
+    display:block!important;
+    position:fixed!important;
+    z-index:5000!important;
+    top:0!important;
+    left:-310px!important;
+    width:290px!important;
+    min-width:0!important;
+    max-width:88vw!important;
+    height:100vh!important;
+    max-height:none!important;
+    overflow-y:auto!important;
+    margin:0!important;
+    transition:left .2s ease!important;
+    box-shadow:8px 0 30px rgba(0,0,0,.28)!important;
+  }
+  body .tool-layout > .sidebar.open{left:0!important}
+  body .menu-btn{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    position:absolute!important;
+    left:10px!important;
+    bottom:12px!important;
+    z-index:5100!important;
+    width:40px!important;
+    height:34px!important;
+    padding:0!important;
+    background:#fff!important;
+    color:#111!important;
+    border:2px solid #111!important;
+    font-size:20px!important;
+    cursor:pointer!important;
+  }
+}
