@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft MOTD Generator - MineToolsX</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/tools.css"></head><body><header class="site-header"><div class="pixel-bg"></div><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header><div class="tool-layout">
+<aside class="sidebar">
+<div class="side-title">COMMUNITY CONTENT</div>
+<nav>
+<a href="/skin.html">🧑 Skin Stealer</a>
+<a href="/">🧱 Crafting</a>
+<a href="/">↳ Custom Crafting</a>
+<a href="/">🌱 Flat World</a>
+<a href="/">📖 Enchant Calculator</a>
+<a href="/">🛡 Armor Color</a>
+<a href="/">🎆 Firework Crafting</a>
+<a href="/">🚩 Banners Crafting</a>
+<a href="/">🏳 Banners Gallery</a>
+<a href="/">🛡 Shield Crafting</a>
+<a href="/">🪨 Custom World</a>
+<a href="/">🐷 Mobs Generator</a>
+<a href="/">📦 Loot Tables</a>
+<a href="/">🧪 Custom Potions</a>
+<a href="/">💡 Beacon Color</a>
+<a href="/coordinate.html">🗺 Coordinate Calculator</a>
+<a href="/selector.html">🎯 Target Selector</a>
+<a href="/">📕 Text Generators</a>
+<a href="/color-codes.html">🟢 Color Codes</a>
+<a href="/">{} JSON Text Component</a>
+<a href="/title.html">▤ Title Generator</a>
+<a href="/">🪧 Sign Generator</a>
+<a href="/">📚 Book Editor</a>
+<a href="/tellraw.html">⌨ /Tellraw Editor</a>
+<a href="/motd.html">💬 Custom Server MOTD</a>
+</nav></aside>
+<main class="tool-main"><h1>Message of the day (MOTD) generator</h1><h2>Tool to make a custom MOTD for your Minecraft server</h2>
+<section class="panel"><div class="field"><label>Your message (2 lines max)</label><textarea id="motdmsg">Welcome to MineToolsX</textarea></div>
+<div class="form-grid"><div class="field"><label>Color</label><select id="mcolor"><option value="a">green</option><option value="b">aqua</option><option value="e">yellow</option><option value="c">red</option><option value="6">gold</option><option value="f">white</option></select></div>
+<div class="field"><label>Formatting</label><select id="mfmt"><option value="">none</option><option value="l">bold</option><option value="o">italic</option><option value="n">underline</option></select></div></div>
+<div id="mpreview" class="preview-box"></div><h3 style="margin-top:20px">Copy/Paste in server.properties, after "motd="</h3><div id="mout" class="output"></div><div class="actions"><button class="btn" onclick="navigator.clipboard.writeText(mout.textContent)">COPY</button></div></section></main>
+<script>
+const cmap={a:'#55FF55',b:'#55FFFF',e:'#FFFF55',c:'#FF5555',6:'#FFAA00',f:'#FFFFFF'};
+function mo(){let text=motdmsg.value.split('\n').slice(0,2).join('\n');motdmsg.value=text;let prefix='\\u00A7'+mcolor.value+(mfmt.value?'\\u00A7'+mfmt.value:'');mout.textContent=prefix+text.replace(/\n/g,'\\n');mpreview.style.color=cmap[mcolor.value];mpreview.style.fontWeight=mfmt.value==='l'?'bold':'normal';mpreview.style.fontStyle=mfmt.value==='o'?'italic':'normal';mpreview.innerHTML=text.replace(/\n/g,'<br>')}
+document.querySelectorAll('.panel textarea,.panel select').forEach(x=>x.addEventListener('input',mo));mo();
+</script></div><footer>© MineToolsX — Not affiliated with Mojang or Microsoft.</footer><script src="/tools.js"></script></body></html>
