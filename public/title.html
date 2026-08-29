@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft Title Generator - MineToolsX</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/tools.css"></head><body><header class="site-header"><div class="pixel-bg"></div><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header><div class="tool-layout">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minecraft Title Command Generator | MineToolsX</title><meta name="description" content="Generate Minecraft /title, subtitle and actionbar commands with colors and custom fade timing."><link rel="canonical" href="https://minetools.io/title.html"><meta property="og:type" content="website"><meta property="og:title" content="Minecraft Title Command Generator | MineToolsX"><meta property="og:description" content="Generate Minecraft /title, subtitle and actionbar commands with colors and custom fade timing."><meta property="og:url" content="https://minetools.io/title.html"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/tools.css"></head><body><header class="site-header"><div class="pixel-bg"></div><a class="logo" href="/"><div class="logo-top">MINECRAFT</div><div class="logo-bottom">TO⚙LS<span>X</span></div></a></header><div class="tool-layout">
 <aside class="sidebar">
 <div class="side-title">COMMUNITY CONTENT</div>
 <nav>
@@ -28,7 +28,7 @@
 <a href="/tellraw.html">⌨ /Tellraw Editor</a>
 <a href="/motd.html">💬 Custom Server MOTD</a>
 </nav></aside>
-<main class="tool-main"><h1>Minecraft custom title</h1><h2>Minecraft /title generator with style and color</h2>
+<main class="tool-main"><h1>Minecraft Title Command Generator</h1><h2>Create title, subtitle and actionbar commands with timing and color controls.</h2>
 <section class="panel"><div class="form-grid">
 <div class="field full"><label>Title</label><input id="tt" value="MineToolsX"></div>
 <div class="field full"><label>Subtitle (optional)</label><input id="sub"></div>
@@ -40,7 +40,7 @@
 <div class="field"><label>Subtitle color</label><select id="sc"><option>white</option><option>gray</option><option>yellow</option><option>aqua</option><option>green</option></select></div>
 </div>
 <div class="checkline"><input id="action" type="checkbox"><label for="action">Display title in action bar</label></div>
-<h3 style="margin-top:22px">Commands</h3><div id="tout" class="output"></div><div class="actions"><button class="btn" onclick="navigator.clipboard.writeText(tout.textContent)">COPY ALL</button></div></section></main>
+<h3 style="margin-top:22px">Commands</h3><div id="tout" class="output"></div><div class="actions"><button class="btn" onclick="navigator.clipboard.writeText(tout.textContent)">COPY ALL</button></div></section><section class="panel seo-guide"><h3>How to use this tool</h3><p>Generate Minecraft /title, subtitle and actionbar commands with colors and custom fade timing.</p><p>Change the options above and the output updates instantly. Review the generated result for the Minecraft version you play, then copy it into your command, datapack or world setup.</p></section></main>
 <script>
 function upd(){const sel=who.value||'@a',fade=Math.round((+fin.value||0)*20),stay=Math.round((+dur.value||0)*20),fo=Math.round((+fout.value||0)*20);const t=JSON.stringify({text:tt.value,color:tc.value}),s=JSON.stringify({text:sub.value,color:sc.value});let lines=[];if(!action.checked)lines.push('/title '+sel+' times '+fade+' '+stay+' '+fo);if(sub.value&&!action.checked)lines.push('/title '+sel+' subtitle '+s);lines.push('/title '+sel+' '+(action.checked?'actionbar':'title')+' '+t);tout.textContent=lines.join('\n')}
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',upd));upd();
