@@ -1,15 +1,7 @@
-const express = require("express");
-const path = require("path");
-
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.listen(port, () => {
-  console.log(`MineToolsX running on port ${port}`);
-});
+const express=require("express");const path=require("path");const app=express();const port=process.env.PORT||3000;
+app.use(express.static(path.join(__dirname,"public")));
+app.get("/api/profile/:username",async(req,res)=>{try{const u=String(req.params.username||"").trim();if(!/^[A-Za-z0-9_]{1,16}$/.test(u))return res.status(400).json({error:"invalid_username"});
+const a=await fetch("https://api.mojang.com/users/profiles/minecraft/"+encodeURIComponent(u));if(a.status===204||a.status===404)return res.status(404).json({error:"not_found"});if(!a.ok)throw new Error("profile");const basic=await a.json();
+let skinUrl=null,capeUrl=null,model="classic";const s=await fetch("https://sessionserver.mojang.com/session/minecraft/profile/"+basic.id);if(s.ok){const prof=await s.json();const prop=prof.properties&&prof.properties.find(x=>x.name==="textures");if(prop?.value){const tex=JSON.parse(Buffer.from(prop.value,"base64").toString("utf8")).textures||{};skinUrl=tex.SKIN?.url||null;capeUrl=tex.CAPE?.url||null;model=tex.SKIN?.metadata?.model==="slim"?"slim":"classic";}}
+res.set("Cache-Control","public, max-age=300");res.json({id:basic.id,name:basic.name,skinUrl,capeUrl,model});}catch(e){res.status(502).json({error:"profile_lookup_failed"})}});
+app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));app.listen(port,()=>console.log(`MineToolsX running on port ${port}`));
