@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://minetools.io/sitemap.xml
