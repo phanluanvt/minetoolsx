@@ -35,3 +35,51 @@
   }
   .tool-main,.content{width:100%;min-width:0}
 }
+
+/* Layout v2: keep two-column tool pages on tablet/desktop */
+@media(min-width:701px){
+  .tool-layout{
+    display:grid!important;
+    grid-template-columns:230px minmax(0,1fr)!important;
+    gap:28px!important;
+    width:1180px!important;
+    max-width:calc(100% - 28px)!important;
+    margin:26px auto!important;
+  }
+  .tool-layout>.sidebar{
+    display:block!important;
+    position:sticky!important;
+    top:12px!important;
+    left:auto!important;
+    width:230px!important;
+    max-width:none!important;
+    height:max-content!important;
+    max-height:calc(100vh - 24px)!important;
+    overflow:auto!important;
+    box-shadow:none!important;
+  }
+  .tool-layout>.skin-main,
+  .tool-layout>.tool-main{
+    min-width:0!important;
+    width:auto!important;
+  }
+  .menu-btn{display:none!important}
+}
+@media(max-width:700px){
+  .tool-layout{display:block!important;width:calc(100% - 20px)!important;margin:14px auto!important}
+  .tool-layout>.sidebar{
+    display:block!important;
+    position:fixed!important;
+    z-index:1000!important;
+    top:0!important;
+    left:-320px!important;
+    width:300px!important;
+    max-width:86vw!important;
+    height:100vh!important;
+    overflow:auto!important;
+    transition:left .2s ease!important;
+    box-shadow:8px 0 28px rgba(0,0,0,.25)!important
+  }
+  .tool-layout>.sidebar.open{left:0!important}
+  .menu-btn{display:block!important}
+}
