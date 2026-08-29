@@ -1,0 +1,26 @@
+
+.tool-layout{width:1180px;max-width:calc(100% - 28px);margin:26px auto;display:grid;grid-template-columns:230px 1fr;gap:28px}
+.tool-main{background:#fff;min-height:720px;padding:30px 38px;text-align:center}
+.tool-main h1{margin:0;color:#48ac05;font-size:31px}
+.tool-main h2{margin:8px 0 28px;color:#555;font-size:17px}
+.panel{max-width:820px;margin:0 auto 24px;padding:24px;border:1px solid #ddd;background:#fafafa;text-align:left}
+.panel h3{margin:0 0 16px;font-size:20px;color:#222}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+.form-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.field label{display:block;font-weight:800;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:10px 11px;border:1px solid #999;background:#fff;font-size:16px}
+.field textarea{min-height:100px;resize:vertical}
+.full{grid-column:1/-1}
+.output{background:#171717;color:#a7ff67;padding:15px 16px;font:15px/1.45 Consolas,monospace;word-break:break-word;white-space:pre-wrap;border-left:5px solid #49ad05;margin-top:14px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{border:0;background:#46ad00;color:#fff;font-weight:900;padding:11px 17px;cursor:pointer;border-radius:3px}
+.btn.secondary{background:#333}
+.mini{font-size:12px;color:#666}
+.code-table{width:100%;border-collapse:collapse;background:#fff}
+.code-table th,.code-table td{padding:10px;border:1px solid #ddd;text-align:left}
+.swatch{display:inline-block;width:18px;height:18px;vertical-align:middle;border:1px solid #777;margin-right:8px}
+.preview-box{background:#111;color:white;padding:22px;min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:28px;margin-top:15px}
+.selector-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.checkline{display:flex;align-items:center;gap:8px;margin-top:8px}
+.checkline input{width:auto}
+@media(max-width:900px){.tool-layout{grid-template-columns:1fr}.tool-main{padding:24px 14px}.form-grid,.form-grid.three,.selector-row{grid-template-columns:1fr}}
